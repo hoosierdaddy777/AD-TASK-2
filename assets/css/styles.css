@@ -1,0 +1,602 @@
+/* ============================================= */
+/* Banking App CSS - Vibrant & Professional      */
+/* ============================================= */
+
+:root {
+  /* Color Palette */
+  --primary-color: #4361ee;
+  --secondary-color: #3a0ca3;
+  --accent-color: #4895ef;
+  --success-color: #4cc9f0;
+  --danger-color: #f72585;
+  --warning-color: #f8961e;
+  --light-color: #f8f9fa;
+  --dark-color: #212529;
+  --gray-color: #6c757d;
+  
+  /* Spacing & Sizing */
+  --border-radius: 12px;
+  --box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+}
+
+/* ==================== */
+/* Base Styles          */
+/* ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/Inter-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/Inter-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+  color: var(--dark-color);
+  background-color: #f1f5fe;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Animated Gradient Background */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, 
+    rgba(67, 97, 238, 0.03) 0%, 
+    rgba(76, 201, 240, 0.03) 50%,
+    rgba(248, 37, 133, 0.03) 100%);
+  z-index: -2;
+  animation: gradientShift 18s ease infinite;
+  background-size: 300% 300%;
+}
+
+/* ==================== */
+/* Layout Components    */
+/* ==================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  position: relative;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--primary-color), transparent);
+}
+
+.header h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.header h1::before {
+  content: "🏦";
+  font-size: 1.8rem;
+  background: transparent;
+}
+
+/* ==================== */
+/* Navigation           */
+/* ==================== */
+.nav {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.nav a {
+  text-decoration: none;
+  color: white;
+  background-color: var(--primary-color);
+  padding: 0.7rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 12px rgba(67, 97, 238, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.nav a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: 0.5s;
+}
+
+.nav a:hover::before {
+  left: 100%;
+}
+
+.nav a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(67, 97, 238, 0.4);
+  background-color: var(--secondary-color);
+}
+
+.nav a.active {
+  background-color: var(--dark-color);
+}
+
+/* Icon indicators */
+.nav a[href*="account"]::after {
+  content: "💳";
+  font-size: 1.2rem;
+}
+
+.nav a[href*="transaction"]::after {
+  content: "📊";
+  font-size: 1.2rem;
+}
+
+/* ==================== */
+/* Account Cards        */
+/* ==================== */
+.account-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.account {
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 1.75rem;
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(67, 97, 238, 0.1);
+}
+
+.account::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
+  transition: width 0.3s ease;
+}
+
+.account:hover::before {
+  width: 8px;
+}
+
+.account:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.account h3 {
+  font-size: 1.25rem;
+  color: var(--dark-color);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.account-id {
+  font-size: 0.85rem;
+  color: var(--gray-color);
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background-color: rgba(67, 97, 238, 0.1);
+  border-radius: 50px;
+}
+
+.account-balance {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin: 1rem 0;
+  color: var(--dark-color);
+  position: relative;
+}
+
+.account-balance::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+  border-radius: 3px;
+}
+
+.account-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  color: var(--gray-color);
+  font-size: 0.9rem;
+}
+
+/* ==================== */
+/* Transactions         */
+/* ==================== */
+.transaction-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.transaction-day {
+  margin-bottom: 2.5rem;
+}
+
+.transaction-day h3 {
+  font-size: 1.1rem;
+  color: var(--gray-color);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed #dee2e6;
+  display: flex;
+  align-items: center;
+}
+
+.transaction-day h3::before {
+  content: "📅";
+  margin-right: 0.5rem;
+  font-size: 1rem;
+}
+
+.transaction {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem;
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: var(--transition);
+  position: relative;
+}
+
+.transaction:hover {
+  transform: translateX(10px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.transaction-info {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.transaction-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+  background-color: #e9f5ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.transaction-details {
+  flex-grow: 1;
+}
+
+.transaction-account {
+  font-weight: 700;
+  color: var(--dark-color);
+  margin-bottom: 0.25rem;
+}
+
+.transaction-type {
+  font-size: 0.85rem;
+  color: var(--gray-color);
+}
+
+.transaction-amount {
+  font-weight: 800;
+  font-size: 1.2rem;
+  position: relative;
+  padding-right: 1.5rem;
+}
+
+.transaction-amount::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+
+.positive {
+  color: var(--success-color);
+}
+
+.negative {
+  color: var(--danger-color);
+}
+
+/* ==================== */
+/* Special Components   */
+/* ==================== */
+/* Floating Action Button */
+.fab {
+  position: fixed;
+  bottom: 2.5rem;
+  right: 2.5rem;
+  z-index: 100;
+}
+
+.fab-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  color: white;
+  border: none;
+  box-shadow: 0 6px 20px rgba(67, 97, 238, 0.3);
+  cursor: pointer;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.fab-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.fab-button:hover::before {
+  opacity: 1;
+}
+
+.fab-button:hover {
+  transform: scale(1.1) rotate(90deg);
+  box-shadow: 0 10px 30px rgba(67, 97, 238, 0.5);
+}
+
+.fab-icon {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.fab-button:hover .fab-icon {
+  transform: scale(1.2);
+}
+
+/* Notification System */
+.notification {
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: var(--border-radius);
+  background-color: white;
+  color: var(--dark-color);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: var(--box-shadow);
+  position: relative;
+  overflow: hidden;
+  border-left: 4px solid var(--primary-color);
+}
+
+.notification::before {
+  content: "ℹ️";
+  font-size: 1.2rem;
+}
+
+.notification.success {
+  border-left-color: var(--success-color);
+}
+
+.notification.success::before {
+  content: "✅";
+}
+
+.notification.error {
+  border-left-color: var(--danger-color);
+}
+
+.notification.error::before {
+  content: "❌";
+}
+
+/* Total Balance Display */
+.total-balance {
+  font-size: 1.8rem;
+  text-align: center;
+  margin: 3rem 0;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.total-balance::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255,255,255,0.1) 0%,
+    rgba(255,255,255,0) 50%,
+    rgba(255,255,255,0.1) 100%
+  );
+  transform: rotate(30deg);
+  animation: shine 3s infinite;
+}
+
+/* ==================== */
+/* Animations           */
+/* ==================== */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes shine {
+  0% { left: -50%; }
+  100% { left: 150%; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Apply animations */
+.account {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.transaction {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Staggered animations */
+.account:nth-child(1) { animation-delay: 0.1s; }
+.account:nth-child(2) { animation-delay: 0.2s; }
+.account:nth-child(3) { animation-delay: 0.3s; }
+
+.transaction:nth-child(1) { animation-delay: 0.1s; }
+.transaction:nth-child(2) { animation-delay: 0.2s; }
+.transaction:nth-child(3) { animation-delay: 0.3s; }
+
+/* ==================== */
+/* Responsive Design    */
+/* ==================== */
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem;
+  }
+  
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+  
+  .nav {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  
+  .account-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .transaction {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .transaction-amount {
+    align-self: flex-end;
+  }
+  
+  .fab {
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background: white;
+    color: black;
+    font-size: 12pt;
+  }
+  
+  .nav, .fab {
+    display: none;
+  }
+  
+  .account, .transaction {
+    box-shadow: none;
+    border: 1px solid #ddd;
+    page-break-inside: avoid;
+  }
+}
