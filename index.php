@@ -38,7 +38,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'transfer') {
 <html>
 <head>
     <title>Account Overview</title>
-    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
     <div class="container">
