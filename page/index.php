@@ -38,7 +38,7 @@ function displayTransactionsForDate($date, $transactions) {
 <html>
 <head>
     <title>Transaction History</title>
-    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
 <body>
     <div class="container">
