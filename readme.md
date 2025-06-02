@@ -1,16 +1,14 @@
-<a name="readme-top">
-
-<br/>
+<a name="readme-top"></a>
 
 <br />
 <div align="center">
-  <a href="https://github.com/yourusername/">
-    <img src="/assets/img/feutechlogo.png" alt="FEUTECH Logo" width="130" height="100">
-  </a>
-  <h3 align="center">AD-Banking-App</h3>
+  <img src="./feutechlogo.png" alt="FEUTECH Logo" width="" height="130">
 </div>
 <div align="center">
-  A simple PHP banking application with account management and transaction features
+  <h3 align="center">AD-Banking Application</h3>
+</div>
+<div align="center">
+  A modern banking portal for account management and transaction tracking
 </div>
 
 <br />
@@ -21,29 +19,19 @@
 
 ---
 
-<br />
-<br />
-
 <details>
   <summary>Table of Contents</summary>
   <ol>
     <li>
       <a href="#overview">Overview</a>
       <ol>
-        <li>
-          <a href="#key-components">Key Components</a>
-        </li>
-        <li>
-          <a href="#technology">Technology</a>
-        </li>
+        <li><a href="#key-components">Key Components</a></li>
+        <li><a href="#technology">Technology</a></li>
       </ol>
     </li>
-    <li>
-      <a href="#rule,-practices-and-principles">Rules, Practices and Principles</a>
-    </li>
-    <li>
-      <a href="#resources">Resources</a>
-    </li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#rule-practices-and-principles">Rules, Practices and Principles</a></li>
+    <li><a href="#resources">Resources</a></li>
   </ol>
 </details>
 
@@ -51,20 +39,20 @@
 
 ## Overview
 
-A PHP-based banking application that demonstrates account management and transaction processing. The application features:
+The Banking Application is a PHP-based web application that simulates core banking operations. It features:
 
-- Account overview with balances
-- Fund transfer functionality
-- Transaction history
-- Responsive design with modern UI elements
+1. An account overview dashboard showing balances and account details  
+2. Fund transfer functionality between accounts  
+3. Transaction history tracking  
+4. Modern UI with animated elements and responsive design
 
 ### Key Components
 
-- Account management system
-- Transaction processing
-- Balance calculation
-- Transfer simulation
-- Notification system
+- **Account Management**: View and manage multiple bank accounts  
+- **Transaction System**: Track money transfers between accounts  
+- **Balance Calculation**: Automatic total balance computation  
+- **Notification System**: Transfer confirmation messages  
+- **Responsive Design**: Adapts to different screen sizes  
 
 ### Technology
 
@@ -74,32 +62,79 @@ A PHP-based banking application that demonstrates account management and transac
 ![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
 
 #### Frontend
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![Inter Font](https://img.shields.io/badge/Font-Inter-143?style=for-the-badge)
+![CSS3 Animations](https://img.shields.io/badge/Animations-CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
-#### Deployment
-![Localhost](https://img.shields.io/badge/Localhost-0A1A2F?style=for-the-badge&logo=localhost&logoColor=white)
+#### Design
+![Gradient UI](https://img.shields.io/badge/UI-Gradient-4361EE?style=for-the-badge)
+![Modern Layout](https://img.shields.io/badge/Layout-Modern-3A0CA3?style=for-the-badge)
+
+---
+
+## Features
+
+1. **Account Dashboard**  
+   - View all accounts with current balances  
+   - Color-coded account cards  
+   - Total balance calculation  
+
+2. **Transaction System**  
+   - Simulate transfers between accounts  
+   - Transaction confirmation notifications  
+   - Balance updates in real-time  
+
+3. **Modern UI Elements**  
+   - Animated gradient background  
+   - Smooth hover effects and transitions  
+   - Responsive card layout  
+
+4. **Navigation**  
+   - Seamless switching between accounts and transactions views  
+
+---
 
 ## Rules, Practices and Principles
 
-1. Always use `AD-` in the front of the Title of the Project for the Subject followed by your custom naming.
-2. Do not rename `.php` files if they are pages; always use `index.php` as the filename.
-3. Add `.component` to the `.php` files if they are components code; example: `footer.component.php`.
-4. Add `.util` to the `.php` files if they are utility codes; example: `account.util.php`.
-5. Place Files in their respective folders.
-6. Different file naming Cases
-   | Naming Case | Type of code         | Example                           |
-   | ----------- | -------------------- | --------------------------------- |
-   | Pascal      | Utility              | Accoun.util.php                   |
-   | Camel       | Components and Pages | index.php or footer.component.php |
-8. Renaming of Pages folder names are a must, and relates to what it is doing or data it holding.
-9. Use proper label in your github commits: `feat`, `fix`, `refactor` and `docs`
-10. File Structure to follow below.
+1. Always use `AD-` in the front of the Title of the Project for the Subject followed by your custom naming.  
+2. Do not rename `.php` files if they are pages; always use `index.php` as the filename.  
+3. Add `.component` to the `.php` files if they are components; e.g., `footer.component.php`.  
+4. Add `.util` to the `.php` files if they are utility codes; e.g., `account.util.php`.  
+5. Place files in their respective folders.  
+6. Naming Conventions:
+
+| Naming Case | Type of Code         | Example                           |
+|-------------|----------------------|-----------------------------------|
+| Pascal      | Utility              | Account.util.php                  |
+| Camel       | Components and Pages | index.php, footer.component.php   |
+
+7. Renaming of folders must be meaningful and reflect their purpose or content.  
+8. Use proper labels in GitHub commits: `feat`, `fix`, `refactor`, `docs`.  
+9. File Structure:
+
+```
+AD-Banking-App
+├── assets
+│   ├── css
+│   │   └── styles.css
+│   └── img
+│       └── feutechlogo.png
+├── page
+│   └── index.php
+├── .gitignore
+├── bootstrap.php
+├── composer.json
+├── composer.lock
+├── index.php
+├── readme.md
+└── router.php
+```
 
 
 ## Resources
 
-| Title | Purpose | Link |
-|-------|---------|------|
-| PHP Documentation | Official PHP language reference | https://www.php.net/docs.php |
-| CSS Tricks | Modern CSS techniques and examples | https://css-tricks.com/ |
-| MDN Web Docs | Web development resources | https://developer.mozilla.org/ |
+| Title             | Purpose                         | Link                                                                 |
+|-------------------|----------------------------------|----------------------------------------------------------------------|
+| PHP Documentation | Official PHP language reference | [php.net](https://www.php.net/)                                     |
+| MDN Web Docs      | Web development resources        | [developer.mozilla.org](https://developer.mozilla.org/)             |
+| CSS Tricks        | Modern CSS techniques            | [css-tricks.com](https://css-tricks.com/)                           |
+| Inter Font        | Modern sans-serif font family    | [rsms.me/inter](https://rsms.me/inter/)                             |
